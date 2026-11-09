@@ -1,0 +1,25 @@
+{
+  "name": "clapback",
+  "version": "0.1.0",
+  "description": "Clap once. See how echoey your room is, and how to fix it.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "accuracy": "node --experimental-strip-types scripts/accuracy.ts",
+    "samples": "node --experimental-strip-types scripts/make-samples.ts"
+  },
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.8",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/instrument-sans": "^5.3.0"
+  }
+}

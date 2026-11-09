@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clapback: how echoey is your room?</title>
+    <meta name="description" content="Clap once. Clapback measures your room's echo time with your microphone and tells you if it's fit for calls, teaching and recording, and what to change." />
+    <meta name="theme-color" content="#1f4d43" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="Clapback: how echoey is your room?" />
+    <meta property="og:description" content="Clap once. See your room's echo time, what it means for calls, teaching and recording, and what to change." />
+    <meta property="og:image" content="/og.png" />
+  </head>
+  <body>
+    <a class="skip" href="#meter">Skip to the meter</a>
+    <header class="top">
+      <a class="wordmark" href="/" aria-label="Clapback home">Clapback<span aria-hidden="true">back</span><span aria-hidden="true">back</span></a>
+      <nav><a href="#how">How it works</a></nav>
+    </header>
+
+    <main>
+      <section class="panel" id="meter" aria-labelledby="hero-title">
+        <div class="hero">
+          <h1 id="hero-title" class="echo"><span class="say">Clap.</span><span class="e e1" aria-hidden="true">clap.</span><span class="e e2" aria-hidden="true">clap.</span><span class="e e3" aria-hidden="true">clap.</span></h1>
+          <p class="lede">Clapback listens to how your room answers one clap, then tells you if it’s fit for video calls, teaching and recording, and what to change.</p>
+          <p class="privacy">The sound stays on this device. Nothing is uploaded or saved anywhere but your browser.</p>
+        </div>
+
+        <div class="instrument">
+          <div class="slots" role="group" aria-label="Which measurement">
+            <button type="button" class="slot" data-slot="before" aria-pressed="true">Before</button>
+            <button type="button" class="slot" data-slot="after" aria-pressed="false">After</button>
+          </div>
+
+          <div class="dial">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="sweep" aria-hidden="true"></span>
+            <button type="button" id="listen" class="listen">
+              <span class="listen-main">Start listening</span>
+              <span class="listen-sub">uses your microphone</span>
+            </button>
+          </div>
+
+          <p id="status" class="status" role="status" aria-live="polite">Stand in the spot you record from. Press start, then clap once, loudly.</p>
+          <ol class="claps" id="claps" aria-label="Claps in this measurement"></ol>
+
+          <div class="alt">
+            <p>No microphone handy? Hear and measure two sample rooms:</p>
+            <div class="sample-row">
+              <button type="button" class="ghost" data-sample="bare">Bare bedroom</button>
+              <button type="button" class="ghost" data-sample="treated">Same room, with a duvet, rug and curtains</button>
+            </div>
+            <label class="file">Or measure a recording of a clap<input type="file" id="file" accept="audio/*" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section id="compare" class="compare" hidden aria-labelledby="compare-title"></section>
+
+      <section id="result" class="result" hidden aria-labelledby="result-title"></section>
+
+      <section id="how" class="how" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <div class="how-grid">
+          <div>
+            <h3>What it measures</h3>
+            <p>After a sharp sound, a room keeps it bouncing between walls, floor and ceiling. The <strong>echo time</strong> (acousticians call it RT60) is how long that takes to fade by 60 decibels, to about a millionth of its energy. Bare rooms with hard walls ring for a second or more; furnished rooms settle in under half a second.</p>
+          </div>
+          <div>
+            <h3>How one clap is enough</h3>
+            <p>Clapback records the quiet moment before your clap (to learn the room’s background noise) and three seconds after it. It splits the sound into octave bands, subtracts the noise, adds up the remaining energy backwards in time (Schroeder’s method), and fits a straight line to the decay. The echo time shown is the average of the 500 Hz, 1 kHz and 2 kHz bands, where speech lives.</p>
+          </div>
+          <div>
+            <h3>How accurate it is</h3>
+            <p>On synthetic rooms with known echo times, the average error is 2–4 %, and 90 % of readings are within 9 % even when the clap is only 35 dB above the room noise. Real rooms are messier, so expect about ±10–20 %: plenty to tell dry from echoey and to see a change work. It is not a certified measurement. <a href="https://github.com/zuhairhalawa/clapback/blob/master/docs/ACCURACY.md">Full accuracy report</a>.</p>
+          </div>
+          <div>
+            <h3>Tips for a good reading</h3>
+            <ul>
+              <li>One sharp clap with cupped hands, 1–2 m from the phone or laptop.</li>
+              <li>Stay silent for three seconds after it.</li>
+              <li>Clap three times; Clapback shows the middle value.</li>
+              <li>Turn off fans and close the door if you can.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Clapback is open source (MIT). <a href="https://github.com/zuhairhalawa/clapback">Source code</a>.</p>
+      <p>Echo targets are rules of thumb for small rooms. Fix suggestions use Sabine’s formula and typical household materials, so treat the amounts as rough.</p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
