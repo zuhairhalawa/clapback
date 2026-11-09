@@ -652,7 +652,7 @@ a {
 }
 .cols h3,
 .how h3 {
-  font: 700 1.3rem/1.2 var(--display);
+  font: 700 1.45rem/1.2 var(--display);
   letter-spacing: -0.01em;
   margin: 0 0 12px;
 }
@@ -691,9 +691,9 @@ a {
   font-size: 0.97rem;
   margin: 14px 0 0;
   padding: 12px 14px;
-  border-left: 4px solid var(--trace);
+  border: 1.5px solid var(--rule);
   background: var(--card);
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  border-radius: var(--r-sm);
 }
 
 .pickers {
