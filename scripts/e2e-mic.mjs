@@ -2,7 +2,7 @@
 // microphone that plays a WAV of three claps (test/fixtures/mic-*.wav).
 // First the bare-room claps are measured as "Before", then a new browser with
 // the treated-room claps measures "After" (localStorage keeps the Before).
-// Usage: node scripts/e2e-mic.mjs [base-url] [shots-dir]
+// Usage: node scripts/e2e-mic.mjs [base-url] [shots-dir] [before.wav] [after.wav]
 import { mkdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -46,7 +46,7 @@ async function run(fixture, slot) {
   return { slot, claps, status, secs, errors };
 }
 
-const before = await run('test/fixtures/mic-bare.wav', 'before');
+const before = await run(process.argv[4] ?? 'test/fixtures/mic-bare.wav', 'before');
 console.log(JSON.stringify(before));
-const after = await run('test/fixtures/mic-treated.wav', 'after');
+const after = await run(process.argv[5] ?? 'test/fixtures/mic-treated.wav', 'after');
 console.log(JSON.stringify(after));
