@@ -4,7 +4,7 @@
 
 Clapback is a free web app that measures a room's echo time (RT60) from a single hand clap, using the microphone of a phone or laptop. It draws the decay curve, rates the room for video calls, teaching and voice recording, suggests household fixes sized with Sabine's formula, and shows a before/after comparison when you change something.
 
-**Try it: https://clapback.pages.dev** (no install, no account; press "Bare bedroom", then "Same room, with a duvet, rug and curtains" if you have no microphone handy).
+**Try it: https://clapback.pages.dev** · **Demo video (2 min): https://youtu.be/w18_SYeGtQc** (no install, no account; press "Bare bedroom", then "Same room, with a duvet, rug and curtains" if you have no microphone handy).
 
 ![Before and after: 52 % less echo, 0.87 s to 0.42 s](docs/screenshots/compare.png)
 
